@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>read_product</title>
+</head>
+<body>
+    <h1 align="center">All Games</h1>
+
+    <table align="center" border="1">
+
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Manufacturer</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th>Add to Cart</th>
+        </tr>
+
+        {% for x in data %}
+            <tr>
+                <td>{{ x.name }}</td>
+                <td>{{ x.description }}</td>
+                <td>{{ x.manufacturer }}</td>
+                <td>{{ x.category }}</td>
+                <td>{{ x.price }}</td>
+                <td><img src="{{ x.image.url }}" height="200px" width="200px"></td>
+                <td><a href="/update_product/{{ x.id }}">Update</a></td>
+                <td><a href="/delete_product/{{ x.id }}">Delete</a></td>
+                <td><a href="/create_cart{{ x.id }}">Add to Cart</a></td>
+            </tr>
+            
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
